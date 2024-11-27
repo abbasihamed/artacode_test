@@ -1,4 +1,5 @@
 import 'package:artacode_test/config/router/app_path.dart';
+import 'package:artacode_test/feauters/auth/presentation/pages/login_screen.dart';
 import 'package:artacode_test/feauters/auth/presentation/pages/register_screen.dart';
 import 'package:artacode_test/feauters/auth/presentation/pages/start_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -19,6 +20,13 @@ class AppRouter {
             name: AppPathName.i.register,
             builder: (context, state) {
               return const RegisterScreen();
+            },
+          ),
+          GoRoute(
+            path: '/login',
+            name: AppPathName.i.login,
+            builder: (context, state) {
+              return const LoginScreen();
             },
           ),
         ],

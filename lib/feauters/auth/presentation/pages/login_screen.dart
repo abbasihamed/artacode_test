@@ -10,8 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -61,15 +61,15 @@ class RegisterScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               CustomButton(
-                title: 'ثبت نام',
+                title: 'ورود',
                 onTap: () {},
               ),
               TextButton(
                 onPressed: () {
-                  context.goNamed(AppPathName.i.login);
+                  context.goNamed(AppPathName.i.register);
                 },
                 child: Text(
-                  'قبلا ثبت نام کرده ام',
+                  'ایجاد حساب کاربری',
                   style: context.textStyle().labelSmall?.copyWith(
                         decoration: TextDecoration.underline,
                       ),

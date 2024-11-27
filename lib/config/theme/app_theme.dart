@@ -12,6 +12,23 @@ class AppTheme {
     bottomSheetTheme: const BottomSheetThemeData(
       backgroundColor: Colors.transparent,
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      fillColor: AppColor.instance.white.withOpacity(.6),
+      filled: true,
+      hintStyle: TextStyle(
+        fontWeight: FontWeight.w400,
+        color: AppColor.instance.gray1,
+        fontSize: 12,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(100),
+        borderSide: BorderSide.none,
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(100),
+        borderSide: BorderSide.none,
+      ),
+    ),
     textTheme: TextTheme(
       labelLarge: TextStyle(
         fontWeight: FontWeight.w900,
