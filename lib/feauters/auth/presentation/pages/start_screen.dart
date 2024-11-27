@@ -17,7 +17,7 @@ class StartScreen extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: context.theme().colorScheme.onPrimary,
+        backgroundColor: context.myTheme().colorScheme.onPrimary,
         body: Stack(
           children: [
             const CustomShadow(),
@@ -57,7 +57,7 @@ class StartScreen extends StatelessWidget {
               CustomButton(
                 title: 'ایجاد حساب کاربری',
                 onTap: () {
-                  context.goNamed(AppPathName.i.register);
+                  context.goNamed(AppPathName.i.products);
                 },
               ),
               TextButton(

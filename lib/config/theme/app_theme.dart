@@ -6,7 +6,7 @@ class AppTheme {
     fontFamily: 'yekan-bakh',
     colorScheme: ColorScheme.light(
       onPrimary: AppColor.instance.purple,
-      onSecondary: AppColor.instance.purple,
+      onSecondary: AppColor.instance.green3,
       onPrimaryContainer: AppColor.instance.blue,
     ),
     bottomSheetTheme: const BottomSheetThemeData(
@@ -49,6 +49,11 @@ class AppTheme {
         fontWeight: FontWeight.w400,
         fontSize: 16,
         color: AppColor.instance.gray,
+      ),
+      titleMedium:  TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: 15,
+        color: AppColor.instance.dark,
       ),
     ),
   );

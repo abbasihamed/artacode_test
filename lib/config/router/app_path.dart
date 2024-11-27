@@ -9,5 +9,6 @@ class AppPathName {
   final String register = 'register';
   final String login = 'login';
   final String home = 'home';
+  final String products = 'products';
   final String productDetail = 'productDetail';
 }

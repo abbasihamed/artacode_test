@@ -21,7 +21,7 @@ class CustomButton extends StatelessWidget {
         height: 57,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: context.theme().colorScheme.onPrimaryContainer,
+          color: context.myTheme().colorScheme.onPrimaryContainer,
           borderRadius: BorderRadius.circular(100),
         ),
         child: Text(
