@@ -19,4 +19,5 @@ class AppColor {
   final Color gray1 = const Color(0xFFC4C4C4);
   final Color blue = const Color(0xFF0183FF);
   final Color blurColor = const Color(0xFFCCD3F4);
+  final Color blurColor2 = const Color(0xFFD1DEE1);
 }

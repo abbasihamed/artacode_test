@@ -22,7 +22,10 @@ class RegisterScreen extends StatelessWidget {
         backgroundColor: const Color(0xFFe0e6ff),
         body: Stack(
           children: [
-            const CustomShadow(),
+            const CustomShadow(
+              bottom: -50,
+              start: -50,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 41),
               child: Column(

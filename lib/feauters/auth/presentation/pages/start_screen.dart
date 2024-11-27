@@ -20,7 +20,10 @@ class StartScreen extends StatelessWidget {
         backgroundColor: context.myTheme().colorScheme.onPrimary,
         body: Stack(
           children: [
-            const CustomShadow(),
+            const CustomShadow(
+              bottom: -50,
+              start: -50,
+            ),
             Column(
               children: [
                 SizedBox(height: context.viewPadding().top),
