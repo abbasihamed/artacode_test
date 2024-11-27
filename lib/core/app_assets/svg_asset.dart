@@ -8,4 +8,5 @@ class SvgAsset {
   final String logo = 'assets/icons/logo.svg';
   final String loguot = 'assets/icons/logout.svg';
   final String arrowUp = 'assets/icons/arrow_up.svg';
+  final String arrowDown = 'assets/icons/arrow_down.svg';
 }

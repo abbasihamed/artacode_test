@@ -24,20 +24,31 @@ class ProductsScreen extends StatelessWidget {
           backgroundColor: context.myTheme().colorScheme.onSecondary,
           surfaceTintColor: Colors.transparent,
           toolbarHeight: 160,
-          title: Column(
-            children: [
-              SvgPicture.asset(
-                SvgAsset.i.logo,
-                height: 140,
-              ),
-              Text(
-                'فروشگاه',
-                style: context.textStyle().labelMedium?.copyWith(
-                      fontSize: 14,
-                      color: AppColor.instance.dark,
+          centerTitle: false,
+          title: Container(
+            color: Colors.amber,
+            child: Column(
+              children: [
+                Container(
+                  color: Colors.redAccent,
+                  child: Align(
+                    alignment: AlignmentDirectional.centerEnd,
+                    child: SvgPicture.asset(
+                      SvgAsset.i.logo,
+                      height: 140,
+                      fit: BoxFit.cover,
                     ),
-              ),
-            ],
+                  ),
+                ),
+                Text(
+                  'فروشگاه',
+                  style: context.textStyle().labelMedium?.copyWith(
+                        fontSize: 14,
+                        color: AppColor.instance.dark,
+                      ),
+                ),
+              ],
+            ),
           ),
           actions: const [LogoutButton()],
         ),

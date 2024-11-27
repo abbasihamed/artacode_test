@@ -50,10 +50,20 @@ class AppTheme {
         fontSize: 16,
         color: AppColor.instance.gray,
       ),
-      titleMedium:  TextStyle(
+      titleLarge: TextStyle(
+        fontWeight: FontWeight.w700,
+        fontSize: 18,
+        color: AppColor.instance.black,
+      ),
+      titleMedium: TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 15,
         color: AppColor.instance.dark,
+      ),
+      titleSmall: TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 16,
+        color: AppColor.instance.gray,
       ),
     ),
   );
