@@ -41,7 +41,7 @@ class ProductDetailTitle extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            product.title,
+            'دسته بازی مخصوص XBOX',
             style: context.textStyle().labelLarge,
           ),
           Align(

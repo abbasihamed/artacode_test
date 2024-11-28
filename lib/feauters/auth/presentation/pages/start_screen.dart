@@ -60,7 +60,7 @@ class StartScreen extends StatelessWidget {
               CustomButton(
                 title: 'ایجاد حساب کاربری',
                 onTap: () {
-                  context.goNamed(AppPathName.i.products);
+                  context.goNamed(AppPathName.i.register);
                 },
               ),
               TextButton(

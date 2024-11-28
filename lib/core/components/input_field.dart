@@ -1,11 +1,22 @@
+import 'package:flutter/material.dart';
+
 import 'package:artacode_test/config/theme/app_color.dart';
 import 'package:artacode_test/core/extensions/theme_extensions.dart';
-import 'package:flutter/material.dart';
 
 class InputField extends StatelessWidget {
   final String title;
   final String hint;
-  const InputField({super.key, required this.title, required this.hint});
+  final TextInputType? keyboardType;
+  final TextInputAction? textInputAction;
+  final void Function(String value)? onChanged;
+  const InputField({
+    super.key,
+    required this.title,
+    required this.hint,
+    this.onChanged,
+    this.keyboardType,
+    this.textInputAction,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +38,11 @@ class InputField extends StatelessWidget {
           ),
           const SizedBox(height: 6),
           TextFormField(
+            onChanged: (value) {
+              onChanged?.call(value);
+            },
+            keyboardType: keyboardType,
+            textInputAction: textInputAction,
             decoration: InputDecoration(
               hintText: hint,
             ),

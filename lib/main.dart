@@ -1,8 +1,11 @@
 import 'package:artacode_test/config/router/app_router.dart';
 import 'package:artacode_test/config/theme/app_theme.dart';
+import 'package:artacode_test/di.dart';
 import 'package:flutter/material.dart';
 
-void main(List<String> args) {
+void main(List<String> args) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setup();
   runApp(const MyApp());
 }
 
