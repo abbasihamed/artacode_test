@@ -43,8 +43,12 @@ class ProductDetailDescription extends StatelessWidget {
                                   .myTheme()
                                   .colorScheme
                                   .onSecondary
-                                  .withOpacity(.1),
-                              context.myTheme().colorScheme.onSecondary,
+                                  .withOpacity(.05),
+                              context
+                                  .myTheme()
+                                  .colorScheme
+                                  .onSecondary
+                                  .withOpacity(.5),
                             ],
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,

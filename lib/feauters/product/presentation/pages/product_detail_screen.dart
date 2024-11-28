@@ -37,7 +37,7 @@ class ProductDetailScreen extends StatelessWidget {
                 shadowColor: AppColor.instance.blurColor2,
               ),
               PositionedDirectional(
-                top: context.viewPadding().top,
+                top: context.viewPadding().top + 10,
                 end: 0,
                 child: const LogoutButton(),
               ),
@@ -52,7 +52,7 @@ class ProductDetailScreen extends StatelessWidget {
                         ProductDetailTitle(product: product),
                         const ProductImageSection(),
                         const ProductDetailDescription(),
-                        SizedBox(height: context.viewPadding().bottom + 20),
+                        SizedBox(height: context.viewPadding().bottom + 150),
                       ],
                     ),
                   ),
