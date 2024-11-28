@@ -1,3 +1,6 @@
+import 'package:artacode_test/config/pref/app_pref.dart';
+import 'package:artacode_test/config/router/app_router.dart';
+import 'package:artacode_test/di.dart';
 import 'package:artacode_test/feauters/product/domain/entities/products.dart';
 import 'package:get/get.dart';
 
@@ -48,4 +51,9 @@ class ProductController extends GetxController {
   ];
 
   List<ProductsEntity> get products => _products;
+
+  logout() {
+    locator<AppPref>().removeToken();
+    AppRouter.router.replace('/wellcome');
+  }
 }

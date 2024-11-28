@@ -11,6 +11,10 @@ class AppPref {
   String getToken() {
     return _sharedPreferences.getString(PrefKey.token.name) ?? '';
   }
+
+  void removeToken() {
+    _sharedPreferences.remove(PrefKey.token.name);
+  }
 }
 
 enum PrefKey { token }

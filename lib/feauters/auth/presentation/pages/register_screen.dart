@@ -6,7 +6,6 @@ import 'package:artacode_test/core/app_assets/png_asset.dart';
 import 'package:artacode_test/core/app_assets/svg_asset.dart';
 import 'package:artacode_test/core/components/custom_button.dart';
 import 'package:artacode_test/core/components/input_field.dart';
-import 'package:artacode_test/core/constants/app_key.dart';
 import 'package:artacode_test/core/extensions/size_extensions.dart';
 import 'package:artacode_test/core/extensions/theme_extensions.dart';
 import 'package:artacode_test/di.dart';
@@ -27,8 +26,7 @@ class RegisterScreen extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        key: registerScaffold,
-        resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: true,
         backgroundColor: const Color(0xFFe0e6ff),
         body: Stack(
           children: [
@@ -56,101 +54,106 @@ class RegisterScreen extends StatelessWidget {
               bottom: -50,
               start: -50,
             ),
-            Padding(
+            SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 41),
-              child: Column(
-                children: [
-                  SizedBox(height: context.viewPadding().top),
-                  SvgPicture.asset(
-                    SvgAsset.i.logo,
-                    height: 109,
-                    width: 199,
-                    fit: BoxFit.fill,
-                  ),
-                  Image.asset(
-                    PngAsset.i.login,
-                    width: double.infinity,
-                    height: 227,
-                    fit: BoxFit.fill,
-                  ),
-                  const SizedBox(height: 24),
-                  GetBuilder<RegisterController>(
-                    id: 'email',
-                    builder: (controller) {
-                      return InputField(
-                        title: 'ایمیل',
-                        hint: 'Info@example.com',
-                        keyboardType: TextInputType.emailAddress,
-                        textInputAction: TextInputAction.go,
-                        onChanged: (value) {
-                          controller.changeEmail(value);
-                        },
-                      );
-                    },
-                  ),
-                  const SizedBox(height: 14),
-                  GetBuilder<RegisterController>(
-                    id: 'pass',
-                    builder: (controller) {
-                      return InputField(
-                        title: 'رمز عبور',
-                        hint: 'رمز عبور دلخواه حداقل 5 کاراکتر',
-                        textInputAction: TextInputAction.done,
-                        onChanged: (value) {
-                          controller.changePassword(value);
-                        },
-                      );
-                    },
-                  ),
-                  const SizedBox(height: 4),
-                  GetBuilder<RegisterController>(
-                    id: 'error',
-                    builder: (ct) {
-                      if (ct.hasError) {
-                        return Align(
-                          alignment: const AlignmentDirectional(-.9, 0),
-                          child: Text(
-                            ct.erroMsg,
-                            style: context
-                                .textStyle()
-                                .labelSmall
-                                ?.copyWith(color: Colors.red),
-                          ),
+              child: SizedBox(
+                height: MediaQuery.maybeOf(context)?.size.height,
+                width: double.infinity,
+                child: Column(
+                  children: [
+                    SizedBox(height: context.viewPadding().top),
+                    SvgPicture.asset(
+                      SvgAsset.i.logo,
+                      height: 109,
+                      width: 199,
+                      fit: BoxFit.fill,
+                    ),
+                    Image.asset(
+                      PngAsset.i.login,
+                      width: double.infinity,
+                      height: 227,
+                      fit: BoxFit.fill,
+                    ),
+                    const SizedBox(height: 24),
+                    GetBuilder<RegisterController>(
+                      id: 'email',
+                      builder: (controller) {
+                        return InputField(
+                          title: 'ایمیل',
+                          hint: 'Info@example.com',
+                          keyboardType: TextInputType.emailAddress,
+                          textInputAction: TextInputAction.go,
+                          onChanged: (value) {
+                            controller.changeEmail(value);
+                          },
                         );
-                      }
-                      return const SizedBox();
-                    },
-                  ),
-                ],
+                      },
+                    ),
+                    const SizedBox(height: 14),
+                    GetBuilder<RegisterController>(
+                      id: 'pass',
+                      builder: (controller) {
+                        return InputField(
+                          title: 'رمز عبور',
+                          hint: 'رمز عبور دلخواه حداقل 5 کاراکتر',
+                          textInputAction: TextInputAction.done,
+                          onChanged: (value) {
+                            controller.changePassword(value);
+                          },
+                        );
+                      },
+                    ),
+                    const SizedBox(height: 4),
+                    GetBuilder<RegisterController>(
+                      id: 'error',
+                      builder: (ct) {
+                        if (ct.hasError) {
+                          return Align(
+                            alignment: const AlignmentDirectional(-.9, 0),
+                            child: Text(
+                              ct.erroMsg,
+                              style: context
+                                  .textStyle()
+                                  .labelSmall
+                                  ?.copyWith(color: Colors.red),
+                            ),
+                          );
+                        }
+                        return const SizedBox();
+                      },
+                    ),
+                    const Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          CustomButton(
+                            title: 'ثبت نام',
+                            onTap: () {
+                              Get.find<RegisterController>().registerUser();
+                            },
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              context.goNamed(AppPathName.i.login);
+                            },
+                            child: Text(
+                              'قبلا ثبت نام کرده ام',
+                              style: context.textStyle().labelSmall?.copyWith(
+                                    decoration: TextDecoration.underline,
+                                  ),
+                            ),
+                          ),
+                          SizedBox(height: context.viewPadding().bottom),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
-        ),
-        bottomSheet: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              CustomButton(
-                title: 'ثبت نام',
-                onTap: () {
-                  Get.find<RegisterController>().registerUser();
-                },
-              ),
-              TextButton(
-                onPressed: () {
-                  context.goNamed(AppPathName.i.login);
-                },
-                child: Text(
-                  'قبلا ثبت نام کرده ام',
-                  style: context.textStyle().labelSmall?.copyWith(
-                        decoration: TextDecoration.underline,
-                      ),
-                ),
-              ),
-              SizedBox(height: context.viewPadding().bottom),
-            ],
-          ),
         ),
       ),
     );

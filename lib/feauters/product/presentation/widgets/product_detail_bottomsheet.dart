@@ -57,7 +57,7 @@ class ProductDetailBottomSheet extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(bottom: context.viewPadding().bottom + 10),
             child: CustomButton(
-              title: 'ورود',
+              title: 'افزودن به سبد خرید',
               onTap: () {},
             ),
           ),

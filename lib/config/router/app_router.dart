@@ -1,4 +1,6 @@
+import 'package:artacode_test/config/pref/app_pref.dart';
 import 'package:artacode_test/config/router/app_path.dart';
+import 'package:artacode_test/di.dart';
 import 'package:artacode_test/feauters/auth/presentation/pages/login_screen.dart';
 import 'package:artacode_test/feauters/auth/presentation/pages/register_screen.dart';
 import 'package:artacode_test/feauters/auth/presentation/pages/start_screen.dart';
@@ -16,6 +18,12 @@ class AppRouter {
         name: AppPathName.i.wellcome,
         builder: (context, state) {
           return const StartScreen();
+        },
+        redirect: (context, state) {
+          if (locator<AppPref>().getToken().isNotEmpty) {
+            return '/products';
+          }
+          return null;
         },
         routes: [
           GoRoute(
@@ -45,7 +53,8 @@ class AppRouter {
             path: '/products-detail',
             name: AppPathName.i.productDetail,
             builder: (context, state) {
-              return ProductDetailScreen(product: state.extra as ProductsEntity);
+              return ProductDetailScreen(
+                  product: state.extra as ProductsEntity);
             },
           ),
         ],
