@@ -1,4 +1,5 @@
 import 'package:artacode_test/config/pref/app_pref.dart';
+import 'package:artacode_test/config/router/app_path.dart';
 import 'package:artacode_test/config/router/app_router.dart';
 import 'package:artacode_test/di.dart';
 import 'package:artacode_test/feauters/product/domain/entities/products.dart';
@@ -54,6 +55,6 @@ class ProductController extends GetxController {
 
   logout() {
     locator<AppPref>().removeToken();
-    AppRouter.router.replace('/wellcome');
+    AppRouter.clearAndNavigate(AppPathName.i.wellcome);
   }
 }

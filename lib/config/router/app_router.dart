@@ -61,4 +61,11 @@ class AppRouter {
       ),
     ],
   );
+
+  static void clearAndNavigate(String name) {
+    while (router.canPop() == true) {
+      router.pop();
+    }
+    router.pushReplacementNamed(name);
+  }
 }
