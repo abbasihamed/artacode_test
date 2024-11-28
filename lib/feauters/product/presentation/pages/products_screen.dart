@@ -27,7 +27,7 @@ class ProductsScreen extends StatelessWidget {
           child: Stack(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 150),
+                padding: EdgeInsets.only(top: context.viewPadding().top + 150),
                 child: GetBuilder<ProductController>(
                   builder: (ct) {
                     return GridView.builder(
@@ -124,7 +124,7 @@ class ProductsScreen extends StatelessWidget {
               Positioned(
                 left: 0,
                 right: 0,
-                top: 20,
+                top: context.viewPadding().top,
                 child: Container(
                   color: context.myTheme().colorScheme.onSecondary,
                   child: Column(
